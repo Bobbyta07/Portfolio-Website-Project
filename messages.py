@@ -1,7 +1,8 @@
 from smtplib import SMTP
+import os
 
-USERNAME = 'pythonsmtptest19@gmail.com'
-PASSWORD = 'eqkcpxawxgitbyqd'
+USERNAME = os.environ.get('email')
+PASSWORD = os.environ.get('password')
 
 
 class Messages:
