@@ -1,0 +1,81 @@
+{% extends 'base.html' %}
+
+{% block title %} About {% endblock %}
+
+{% block jumbotron %}
+
+<!--<div class="container my-5">-->
+
+<!--    <img src="{{url_for('static', filename='images/aboutme.png')}}" />-->
+<!--  -->
+<!--</div>-->
+
+{% endblock %}
+
+
+{% block content %}
+
+<div class="container col-xxl-8 px-4 py-5">
+    <div class="row flex-lg-row-reverse align-items-center g-5 py-5">
+      <div class="col-10 col-sm-8 col-lg-6">
+        <img src="{{url_for('static', filename='/images/education.jpg')}}" class="d-block mx-lg-auto img-fluid" alt="Bootstrap Themes" width="700" height="500" loading="lazy">
+      </div>
+      <div class="col-lg-6">
+
+        <h4>Education background</h4>
+        <br/>
+        <p class="lead">I hold an ND in Computer Science from the College of Agriculture, Ishiagu, Ebonyi State, where
+          I laid the foundation for my journey in the tech world. I further pursued a B.Engr in Computer Engineering
+          from Michael Okpara University of Agriculture, Umudike, where I gained in-depth knowledge and hands-on
+          experience in various aspects of computer engineering. To enhance my skills further, I completed the
+          comprehensive "100 Days of Code: The Complete Python Pro Bootcamp for 2023" with Angela Yu on Udemy, which
+          solidified my proficiency in Python.</p>
+
+
+
+      </div>
+    </div>
+  <div class="row flex-lg-row-reverse align-items-center g-5 py-5">
+
+      <div class="col-lg-6">
+        <h4>Professional Experience and Areas of Expertise </h4>
+        <br/>
+        <p class="lead">My professional experience revolves around
+            Python development, where I have honed my skills in backend development, API building, and data science.
+            I have worked on various projects that required designing and implementing robust backend systems, creating
+            efficient and scalable APIs, and analyzing complex datasets to derive meaningful insights. My expertise in
+            these areas allows me to contribute effectively to diverse projects and solve real-world problems using
+            Python.
+        </p>
+
+
+
+      </div>
+    <div class="col-10 col-sm-8 col-lg-6">
+        <img src="{{url_for('static', filename='/images/professional.jpg')}}" class="d-block mx-lg-auto img-fluid" alt="Bootstrap Themes" width="700" height="500" loading="lazy">
+      </div>
+    </div>
+  </div>
+
+<div class="container my-5">
+  <div class="p-5 text-center bg-body-tertiary rounded-3">
+    <p class="lead">
+        I am currently pursuing a Master’s in Data Analytics at Niagara University in Canada. This advanced program is
+        equipping me with the latest tools and methodologies in data analytics, preparing me to tackle complex
+        data-driven challenges and contribute to innovative solutions in the tech industry.
+
+
+        Outside of my academic and professional life, I enjoy playing console games, which help me unwind and keep my
+        strategic
+        thinking sharp. I also have a keen interest in chart analysis, where I apply my analytical skills to understand
+        trends and patterns. Additionally, I love coding, constantly exploring new technologies and improving my
+        programming abilities through various projects and challenges.
+
+        I am passionate about leveraging my skills and knowledge to make a significant impact in the tech industry, both
+        in my
+        home country and globally.
+    </p>
+  </div>
+</div>
+
+{% endblock %}

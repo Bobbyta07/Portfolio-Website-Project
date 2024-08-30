@@ -1,0 +1,31 @@
+{% extends 'base.html' %}
+{% from 'bootstrap5/form.html' import render_form %}
+
+{% block title %} Contact {% endblock %}
+
+
+{% block content %}
+
+
+<div class="container">
+
+       <div class="row flex-lg-row-reverse align-items-center g-5 py-5">
+
+      <div class="col-lg-6">
+
+<iframe src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3940.949805890919!2d7.499392075157361!3d8.976766289804099!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x104e0db594ca0017%3A0x9ae4c3d302e204c9!2sAPO%20RESETTLEMENT%20AREA!5e0!3m2!1sen!2sng!4v1723048494737!5m2!1sen!2sng" width="600" height="450" style="border:0;" allowfullscreen="" loading="lazy" referrerpolicy="no-referrer-when-downgrade"></iframe>
+      </div>
+    <div class="col-10 col-sm-8 col-lg-6">
+          <h1>CONTACT</h1>
+              {{form.csrf_token}}
+            {{ render_form(form) }}
+
+
+      </div>
+    </div>
+
+
+
+</div>
+
+{% endblock %}

@@ -1,0 +1,196 @@
+{% extends 'base.html' %}
+
+{% block title %} Porfolio {% endblock %}
+
+
+
+<!-- Jumbotron -->
+{% block jumbotron %}
+ <div class="container">
+          <section id="jumbotron" class="mb-5">
+
+           <img src="{{ url_for('static', filename='images/new_Home.png') }}" alt="Portfolio" class="img-responsive" style="width:100%" />
+         </section>
+       </div>
+{% endblock %}
+
+{% block content %}
+
+<section>
+<!--<div class="container bg-3 text-center">-->
+<!--   <div class="p-5 text-center  rounded-3">-->
+<!--    <h1 class="text-body-emphasis">MY Gallery</h1>-->
+<!--    <p class="lead">-->
+<!--      Here are a few past design projects I've worked on. Want to see more? Email me.-->
+<!--    </p>-->
+<!--  </div>-->
+<!--  <div class="row">-->
+<!--    <div class="col-sm-4">-->
+
+<!--      <img src="{{url_for('static', filename='images/morse_code.jpg')}}" class="img-responsive .img-thumbnail" style="width:100%" alt="Image" height="300px">-->
+<!--    </div>-->
+<!--    <div class="col-sm-4">-->
+
+<!--      <img src="{{url_for('static', filename='images/Contact.png')}}" class="img-responsive .img-thumbnail" style="width:100%" alt="Image" height="300px">-->
+<!--    </div>-->
+<!--    <div class="col-sm-4">-->
+
+<!--      <img src="{{url_for('static', filename='images/image5.jpg')}}" class="img-responsive .img-thumbnail" style="width:100%" alt="Image" height="300px">-->
+<!--    </div>-->
+
+<!--  </div>-->
+<!--   <div class="row mt-5">-->
+<!--    <div class="col-sm-4">-->
+
+<!--      <img src="{{url_for('static', filename='images/image3.jpg')}}" class="img-responsive .img-thumbnail" style="width:100%" alt="Image" height="300px">-->
+<!--    </div>-->
+<!--    <div class="col-sm-4">-->
+
+<!--      <img src="{{url_for('static', filename='images/image1.jpg')}}" class="img-responsive .img-thumbnail" style="width:100%" alt="Image" height="300px">-->
+<!--    </div>-->
+<!--    <div class="col-sm-4">-->
+
+<!--      <img src="{{url_for('static', filename='images/image5.jpg')}}" class="img-responsive .img-thumbnail" style="width:100%" alt="Image" height="300px">-->
+<!--    </div>-->
+
+<!--  </div>-->
+<!--    <div class="row mt-5">-->
+<!--    <div class="col-sm-4">-->
+
+<!--      <img src="{{url_for('static', filename='images/image3.jpg')}}" class="img-responsive .img-thumbnail" style="width:100%" alt="Image" height="300px">-->
+<!--    </div>-->
+<!--    <div class="col-sm-4">-->
+
+<!--      <img src="{{url_for('static', filename='images/image1.jpg')}}" class="img-responsive .img-thumbnail" style="width:100%" alt="Image" height="300px">-->
+<!--    </div>-->
+<!--    <div class="col-sm-4">-->
+
+<!--      <img src="{{url_for('static', filename='images/image5.jpg')}}" class="img-responsive .img-thumbnail" style="width:100%" alt="Image" height="300px">-->
+<!--    </div>-->
+
+<!--  </div>-->
+
+<!--</div><br>-->
+
+<div class="container">
+    <div class="p-5 text-center  rounded-3">
+    <h1 class="text-body-emphasis">MY Gallery</h1>
+    <p class="lead">
+      Here are a few past design projects I've worked on. Want to see more? Email me.
+    </p>
+  </div>
+    <div class="row">
+
+        {% for item in columns: %}
+
+        <div class="col-sm-6 col-md-4 mb-3" >
+             <h3 class="h5 mb-1">
+              {{item.header}}
+            </h3>
+
+          <p class="text-body-secondary">{{item.paragraph}}</p>
+          <a class="d-block link-offset-1" href="/docs/5.3/examples/album/">
+            <img class="img-thumbnail mb-3 img-responsive" src='{{url_for("static", filename=item.image)}}' alt="thumbnail_images" width="100%" height="200px">
+            </a>
+            {% if current_user.is_authenticated: %}
+            <a href="{{url_for('edit', id=item.id)}}"><svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor" class="bi bi-pen" viewBox="0 0 16 16">
+  <path d="m13.498.795.149-.149a1.207 1.207 0 1 1 1.707 1.708l-.149.148a1.5 1.5 0 0 1-.059 2.059L4.854 14.854a.5.5 0 0 1-.233.131l-4 1a.5.5 0 0 1-.606-.606l1-4a.5.5 0 0 1 .131-.232l9.642-9.642a.5.5 0 0 0-.642.056L6.854 4.854a.5.5 0 1 1-.708-.708L9.44.854A1.5 1.5 0 0 1 11.5.796a1.5 1.5 0 0 1 1.998-.001m-.644.766a.5.5 0 0 0-.707 0L1.95 11.756l-.764 3.057 3.057-.764L14.44 3.854a.5.5 0 0 0 0-.708z"/>
+</svg></a>
+            <a href="{{url_for('delete', id=item.id)}}"><svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor" class="bi bi-file-x-fill" viewBox="0 0 16 16">
+  <path d="M12 0H4a2 2 0 0 0-2 2v12a2 2 0 0 0 2 2h8a2 2 0 0 0 2-2V2a2 2 0 0 0-2-2M6.854 6.146 8 7.293l1.146-1.147a.5.5 0 1 1 .708.708L8.707 8l1.147 1.146a.5.5 0 0 1-.708.708L8 8.707 6.854 9.854a.5.5 0 0 1-.708-.708L7.293 8 6.146 6.854a.5.5 0 1 1 .708-.708"/>
+</svg></a>
+            {% endif %}
+
+        </div>
+        {% endfor %}
+
+
+
+
+<!--        <div class="col-sm-6 col-md-4 mb-3">-->
+<!--            <h3 class="h5 mb-1">-->
+<!--              Morse Code-->
+<!--            </h3>-->
+<!--            <p class="text-body-secondary">Example pricing page built with Cards and featuring a custom header and footer.</p>-->
+<!--          <a class="d-block link-offset-1" href="/docs/5.3/examples/pricing/">-->
+<!--            <img class="img-thumbnail mb-3" src="{{url_for('static', filename='images/image4.jpg')}}" alt="" width="100%" height="300" loading="lazy">-->
+
+<!--          </a>-->
+
+<!--        </div>-->
+
+
+
+
+<!--        <div class="col-sm-6 col-md-4 mb-3">-->
+<!--            <h3 class="h5 mb-1">-->
+<!--              Python API-->
+<!--            </h3>-->
+<!--            <p class="text-body-secondary">Example pricing page built with Cards and featuring a custom header and footer.</p>-->
+<!--          <a class="d-block link-offset-1" href="/docs/5.3/examples/checkout/">-->
+<!--            <img class="img-thumbnail mb-3"  src="{{url_for('static', filename='images/image2.jpg')}}" alt="" width="100%" height="250" loading="lazy">-->
+
+<!--          </a>-->
+
+<!--        </div>-->
+
+
+<!--&lt;!&ndash; Second Row &ndash;&gt;-->
+
+
+<!--        <div class="col-sm-6 col-md-4 mb-3">-->
+<!--            <h3 class="h5 mb-1">-->
+<!--              Python Automation-->
+<!--            </h3>-->
+<!--            <p class="text-body-secondary">Simple one-page template for photo galleries, portfolios, and more.</p>-->
+<!--          <a class="d-block link-offset-1" href="/docs/5.3/examples/album/">-->
+<!--            <img class="img-thumbnail mb-3" src="{{url_for('static', filename='images/image1.jpg')}}" alt="" width="100%" height="300" loading="lazy">-->
+
+<!--          </a>-->
+
+<!--        </div>-->
+
+
+
+
+<!--        <div class="col-sm-6 col-md-4 mb-3">-->
+<!--            <h3 class="h5 mb-1">-->
+<!--              Data Science-->
+<!--            </h3>-->
+<!--            <p class="text-body-secondary">Example pricing page built with Cards and featuring a custom header and footer.</p>-->
+<!--          <a class="d-block link-offset-1" href="/docs/5.3/examples/pricing/">-->
+<!--            <img class="img-thumbnail mb-3" src="{{url_for('static', filename='images/image2.jpg')}}" alt="" width="100%" height="300" loading="lazy">-->
+
+<!--          </a>-->
+
+<!--        </div>-->
+
+
+
+
+<!--        <div class="col-sm-6 col-md-4 mb-3">-->
+<!--            <h3 class="h5 mb-1">-->
+<!--              Web Scraping-->
+<!--            </h3>-->
+<!--            <p class="text-body-secondary">Example pricing page built with Cards and featuring a custom header and footer.</p>-->
+<!--          <a class="d-block link-offset-1" href="/docs/5.3/examples/checkout/">-->
+<!--            <img class="img-thumbnail mb-3"  src="{{url_for('static', filename='images/image4.jpg')}}" alt="" width="100%" height="250" loading="lazy">-->
+
+<!--          </a>-->
+
+<!--        </div>-->
+
+
+    </div>
+
+
+
+
+
+
+</div>
+
+
+
+</section>
+{% endblock %}

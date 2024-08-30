@@ -1,0 +1,19 @@
+element.style {
+}
+.bi {
+    vertical-align: -.125em;
+    fill: currentColor;
+}
+
+*, ::after, ::before {
+    box-sizing: border-box;
+}
+svg[Attributes Style] {
+    width: 24;
+    height: 24;
+}
+
+svg:not(:root) {
+    overflow-clip-margin: content-box;
+    overflow: hidden;
+}
